@@ -1,0 +1,21 @@
+{
+  "name": "inflames.db",
+  "version": "2.5.3",
+  "description": "InFlames#2005 tarafından hazırlanmış database modülü.",
+  "main": "index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "db",
+    "database",
+    "inflames",
+    "data",
+    "veri",
+    "discord",
+    "bot"
+  ],
+  "author": "InFlames#2005",
+  "license": "MIT"
+}
