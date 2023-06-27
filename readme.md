@@ -15,15 +15,17 @@ Modül kurulunca db'yi kullanacağınız dosyanıza aşağıdaki kodu ekleyin.
 
 Sqlite için:
 ```javascript
-const db = require("inflames.db").sqlite();
+const db = require("inflames.db").sqlite("database"); // "database" kısmını eklemezseniz default olarak inflames.db dosyası oluşturulacak.
 ```
 
 Bson için:
 ```javascript
-const db = require("inflames.db").bson();
+const db = require("inflames.db").bson("databases"); // "database" kısmını eklemezseniz default olarak inflames.bson dosyası oluşturulacak.
 ```
 
-Paket otomatik olarak `inflames.db` dosyası oluşturacak verileriniz bu dosyaya kayıt edilecek.
+Paket otomatik olarak database dosyasını oluşturacak verileriniz bu dosyaya kayıt edilecek. 
+
+Not: Unutmayın modülü .sqlite() ve .bson() şeklindede tanımlayabilirsiniz ve dosya ismi belirtirken uzantı yazmayın modül gerekli uzantıyı kendisi ekleyecek.
 
 ## Fonksiyonlar
 
@@ -71,4 +73,4 @@ Eğer bana özelden ulaşmak isterseniz [web sitemi](https://inflames.fun/) ziya
 
 ## inflames.db
 
-Discord Adresim: InFlames#2005
+Discord Adresim: InFlames#8107
