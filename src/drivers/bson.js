@@ -3,9 +3,9 @@ const fs = require("node:fs");
 const lodash = require("lodash");
 
 class Database {
-  constructor() {
+  constructor(file) {
     this.write = txt => fs.writeFileSync(this.file, txt, 'utf8', () => {});
-    this.file = "inflames.bson";
+    this.file = file+".bson";
     try {
         this.database = BSON.deserialize(fs.readFileSync(this.file));
     } catch (e) {
@@ -213,4 +213,4 @@ class Database {
 
 }
 
-module.exports = new Database();
+module.exports = file => new Database(file);
