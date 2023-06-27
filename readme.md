@@ -50,7 +50,6 @@ Array işlemleri:
 Veri kontrol:
 ```javascript
    db.has("prefix") //true
-   db.has("prefix") //true
 ```
     
 Toplama-Çıkarma:
@@ -73,4 +72,4 @@ Eğer bana özelden ulaşmak isterseniz [web sitemi](https://inflames.fun/) ziya
 
 ## inflames.db
 
-Discord Adresim: InFlames#8107
+Discord Adresim: InFlames#2005
