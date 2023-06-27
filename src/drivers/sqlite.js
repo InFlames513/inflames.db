@@ -2,10 +2,9 @@ const database = require('better-sqlite3');
 const lodash = require("lodash");
 
 class Database {
-  constructor(type) {
-    if(type === "sqlite")
+  constructor(file) {
     this.table = "inflames";
-    this.db = database('inflames.db');
+    this.db = database(file+'.db');
     this.db.prepare(`CREATE TABLE IF NOT EXISTS ${this.table} (ID TEXT, json TEXT)`).run();
   }
 
@@ -42,11 +41,11 @@ class Database {
       key = keySplit[0]
       row = this.db.prepare(`SELECT json FROM ${this.table} WHERE ID = @key`).get({ key });
       row = lodash.get(row ? JSON.parse(row?.json) : {}, keySplit.slice(1).join("."));
-      return row != null ? !isNaN(row) ? parseInt(row) : row : null;
+      return row != null ? row : null;
     };
 
     row = this.db.prepare(`SELECT json FROM ${this.table} WHERE ID = @key`).get({ key });
-    return row != null ? !isNaN(row.json) ? parseInt(row.json) : JSON.parse(row.json) : null;
+    return row != null ? JSON.parse(row.json) : null;
   }
 
     /**
@@ -127,7 +126,7 @@ class Database {
    * db.deleteValue("!");
    */
   deleteValue(value) {
-    if(key == null) throw new Error("Missing first argument (value)");
+    if(value == null) throw new Error("Missing first argument (value)");
     this.db.prepare(`DELETE FROM ${this.table} WHERE json=@value`).run({
       value,
     });
@@ -229,4 +228,4 @@ class Database {
   }
 }
 
-module.exports = new Database();
+module.exports = file => new Database(file);
